@@ -32,11 +32,8 @@ services:
       # 初回設定の一時的な管理ユーザー
       KC_BOOTSTRAP_ADMIN_USERNAME: ${KC_BOOTSTRAP_ADMIN_USERNAME}
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_BOOTSTRAP_ADMIN_PASSWORD}
-    volumes:
-      - ./keycloak/import:/opt/keycloak/data/import
     command:
       - start-dev
-      - --import-realm
     networks:
       - keycloak-test-network
 
