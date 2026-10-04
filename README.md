@@ -42,3 +42,30 @@ keycloak起動コマンド（本番用）は
 start
 # /opt/keycloak/bin/kc.sh start
 ```
+
+### RealmJSONのエクスポート
+
+コンテナに接続
+
+```sh
+docker exec -it keycloak-test bash
+```
+
+realmを指定してjsonファイルをエクスポート
+
+```sh
+REALM=${realm}
+/opt/keycloak/bin/kc.sh export --realm $REALM --file /tmp/tmp-realm.json
+```
+
+接続を切断
+
+```sh
+exit
+```
+
+ローカルにコピー
+
+```sh
+docker cp keycloak-test:/tmp/tmp-realm.json ./tmp-realm.json
+```
